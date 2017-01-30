@@ -111,3 +111,34 @@ body{
     }
 }
 
+.brosa-list{
+    list-style: none;
+    padding: 0;
+    .list-item + .list-item{
+        padding-top: 15px;
+    }
+}
+
+.brosa-media{
+    @include clearfix();
+    .media-icon{
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        display: inline-block;
+        float:left;
+        padding: 3px;
+        background-color: $brand-primary;
+        svg{
+            width: 14px;
+            height: 14px;
+            fill: #fff;
+        }
+    }
+    .media-icon + .media-body{
+        width: calc(100% - 30px);
+        display: inline-block;
+        float:left;
+    }
+}
+

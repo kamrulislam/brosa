@@ -1,129 +1,133 @@
-
-body{
+body {
     color: $text-color !important;
 }
 
 .brosa-col-sm-vcenter {
-  @media (min-width: $screen-sm-min) {
-    display: inline-block;
-    vertical-align: middle;
-    float: none !important;
-  }
-}
-.brosa-col-md-vcenter {
-  @media (min-width: $screen-md-min) {
-    display: inline-block;
-    vertical-align: middle;
-    float: none !important;
-  }
+    @media (min-width: $screen-sm-min) {
+        display: inline-block;
+        vertical-align: middle;
+        float: none !important;
+    }
 }
 
-.brosa-block{
+.brosa-col-md-vcenter {
+    @media (min-width: $screen-md-min) {
+        display: inline-block;
+        vertical-align: middle;
+        float: none !important;
+    }
+}
+
+.brosa-block {
     margin-bottom: 80px;
-    &.mod-padded{
+    &.mod-padded {
         padding: 50px;
     }
-    p{
+    p {
         padding: 20px 0;
     }
-
 }
 
-.brosa-inverted-block{
+.brosa-inverted-block {
     background-color: #fff;
     color: $text-color;
 }
 
-
-.brosa-block-title{
+.brosa-block-title {
     text-transform: uppercase;
     font-size: 30px;
     line-height: 1.2;
     padding: 25px 0;
-    &.mod-lg-line{
+    &.mod-lg-line {
         line-height: 1.5;
     }
-    &.mod-sm-padding{
+    &.mod-sm-padding {
         padding: 15px 0;
     }
 }
 
-.brosa-block-text{
+.brosa-block-text {
     font-size: 16px;
     line-height: 30px;
 }
 
-.brosa-hero{
-    height:850px;
-    background:url(../images/background.png) no-repeat center center;
-    .hero-row{
-        padding-top:225px;
+.brosa-hero {
+    height: 850px;
+    background: url(../images/background.png) no-repeat center center;
+    .hero-row {
+        padding-top: 225px;
         @media (max-width: $screen-md-min) {
-            padding-top:80px;
+            padding-top: 80px;
+        }
+    }
+    .hero-bottom-row {
+        padding-bottom: 125px;
+        @media (max-width: $screen-md-min) {
+            padding-bottom: 20px;
         }
     }
 }
 
-.hero-initial{
+.hero-initial {
     font-size: 18px;
     text-transform: uppercase;
     line-height: 1.2;
     display: inline-block;
     padding: 5px 20px;
     background-color: #7BEDC7;
-    &.mod-sm{
+    &.mod-sm {
         font-size: 14px;
         color: #ffffff;
     }
 }
 
-.hero-title{
+.hero-title {
     font-size: 48px;
     line-height: 80px;
     text-transform: uppercase;
     border: 10px solid #60606E;
 }
 
-.hero-sub-title{
+.hero-sub-title {
     padding-top: 25px;
     font-size: 16px;
 }
 
-.brosa-button{
-    padding-top:14px;
+.brosa-button {
+    padding-top: 14px;
     padding-bottom: 14px;
     text-transform: uppercase;
     border-radius: 0;
     border: none;
     line-height: 20px;
-    &.btn-primary.mod-invert{
+    &.btn-primary.mod-invert {
         background-color: #fff;
         color: $brand-primary;
-        &:hover{
+        &:hover {
             background-color: #fff;
             color: darken($brand-primary, 10%);
         }
     }
-    &.mod-lg{
+    &.mod-lg {
         padding-left: 30px;
         padding-right: 30px;
     }
 }
 
-
-.brosa-card{
-    padding: 30px 25px;;
+.brosa-card {
+    padding: 30px 25px;
+    margin-bottom: 10px;
     border-top: 5px solid $brand-primary;
     position: relative;
-    -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.1);
-    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.6s ease-in-out;
-    .brosa-card-content{
+    .brosa-card-content {
         height: 250px;
         padding: 15px 0;
     }
-    &::after{
+    &::after {
         content: ' ';
         display: inline-block;
         position: absolute;
@@ -134,56 +138,54 @@ body{
         width: 0;
         height: 0;
     }
-    &:hover{
-        -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.3);
-        -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.3);
-        box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.3);
-
+    &:hover {
+        -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
     }
 }
 
-.brosa-list{
+.brosa-list {
     list-style: none;
     padding: 0;
-    .list-item + .list-item{
+    .list-item+.list-item {
         padding-top: 15px;
     }
 }
 
-.brosa-media{
+.brosa-media {
     @include clearfix();
-    .media-icon{
+    .media-icon {
         width: 20px;
         height: 20px;
         margin-right: 10px;
         display: inline-block;
-        float:left;
+        float: left;
         padding: 3px;
         background-color: $brand-primary;
-        svg{
+        svg {
             width: 14px;
             height: 14px;
             fill: #fff;
         }
     }
-    .media-icon + .media-body{
+    .media-icon+.media-body {
         width: calc(100% - 30px);
         display: inline-block;
-        float:left;
+        float: left;
     }
 }
 
-.mod-bg-primary{
+.mod-bg-primary {
     background-color: $brand-primary;
     color: #fff;
-
 }
 
-.brosa-input-group{
+.brosa-input-group {
     @include clearfix();
     width: 100%;
     margin-bottom: 30px;
-    .brosa-input{
+    .brosa-input {
         float: left;
         width: calc(100% - 100px);
         border-radius: 0;
@@ -193,52 +195,57 @@ body{
         padding-top: 13px;
         padding-bottom: 13px;
         height: 48px;
-        &::placeholder{
+        &::placeholder {
             text-transform: uppercase;
             color: lighten($text-color, 30%);
         }
-        &:focus{
+        &:focus {
             border-color: $brand-primary;
         }
     }
-
-    .brosa-input-addon{
+    .brosa-input-addon {
         float: left;
         width: 100px;
         border-radius: 0;
     }
 }
 
-.navbar-header{
-    .brosa-brand{
+.navbar-header {
+    .brosa-brand {
         color: $text-color;
     }
 }
 
-#brosa-navbar{
-    svg{
+#brosa-navbar {
+    svg {
         width: 25px;
         height: 25px;
     }
-    &.navbar-default{
+    .navbar-header {
+        float: left;
+    }
+    &.navbar-default {
         background-color: transparent;
         border-color: transparent;
-        li:hover{
+        li:hover {
             background-color: $navbar-default-border;
         }
     }
-    &.navbar-inverse{
+    &.navbar-inverse {
         border-color: #ddd;
-        .navbar-brand{
+        .navbar-brand {
             color: #fff;
         }
-        svg{
-            fill:#fff;
+        svg {
+            fill: #fff;
         }
-        li:hover{
+        li:hover {
             background-color: #ddd;
         }
-
+    }
+    .navbar-nav.navbar-right {
+        @media (max-width: $screen-md-min) {
+            float: right;
+        }
     }
 }
-

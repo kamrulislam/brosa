@@ -71,6 +71,7 @@ gulp.task('scripts-deploy', function() {
                 //prevent pipe breaking caused by errors from gulp plugins
                 .pipe(plumber())
                 //compress :D
+                .pipe(concat('app.js'))
                 .pipe(uglify())
                 //where we will store our finalized, compressed script
                 .pipe(gulp.dest('dist/scripts'));
@@ -128,7 +129,7 @@ gulp.task('styles-deploy', function() {
                 }))
                 //the final filename of our combined css file
                 .pipe(concat('styles.css'))
-                .pipe(minifyCSS())
+                // .pipe(minifyCSS())
                 //where to save our final, compressed css file
                 .pipe(gulp.dest('dist/styles'));
 });
@@ -147,27 +148,28 @@ gulp.task('html', function() {
 //migrating over all HTML files for deployment
 gulp.task('html-deploy', function() {
     //grab everything, which should include htaccess, robots, etc
-    gulp.src('app/*')
+    gulp.src(['app/.htaccess', 'app/*.xml', 'app/*.txt'])
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
         .pipe(gulp.dest('dist'));
 
-    //grab any hidden files too
-    gulp.src('app/.*')
+    //grab everything, which should include htaccess, robots, etc
+    gulp.src('.tmp/index.html')
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
         .pipe(gulp.dest('dist'));
 
-    gulp.src('app/fonts/**/*')
-        //prevent pipe breaking caused by errors from gulp plugins
-        .pipe(plumber())
-        .pipe(gulp.dest('dist/fonts'));
+    // //grab everything, which should include htaccess, robots, etc
+    // gulp.src('.tmp/scripts/app.js')
+    //     //prevent pipe breaking caused by errors from gulp plugins
+    //     .pipe(plumber())
+    //     .pipe(gulp.dest('dist/scripts'));
 
     //grab all of the styles
-    gulp.src(['app/styles/*.css', '!app/styles/styles.css'])
-        //prevent pipe breaking caused by errors from gulp plugins
-        .pipe(plumber())
-        .pipe(gulp.dest('dist/styles'));
+    // gulp.src(['.tmp/styles/*.css'])
+    //     //prevent pipe breaking caused by errors from gulp plugins
+    //     .pipe(plumber())
+    //     .pipe(gulp.dest('dist/styles'));
 });
 
 //cleans our dist directory in case things got deleted
@@ -181,7 +183,6 @@ gulp.task('clean', function() {
 gulp.task('scaffold', function() {
   return shell.task([
       'mkdir dist',
-      'mkdir dist/fonts',
       'mkdir dist/images',
       'mkdir dist/scripts',
       'mkdir dist/styles'
@@ -204,4 +205,4 @@ gulp.task('default', ['browserSync', 'scripts', 'styles', 'html'], function() {
 });
 
 //this is our deployment task, it will set everything for deployment-ready files
-gulp.task('deploy', gulpSequence('clean', 'scaffold', ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy'));
+gulp.task('deploy', gulpSequence('clean', 'scaffold', [ 'scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy'));

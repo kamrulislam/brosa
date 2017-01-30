@@ -1,6 +1,4 @@
 
-$text-color: #60606E !default;
-
 body{
     color: $text-color !important;
 }
@@ -20,11 +18,34 @@ body{
   }
 }
 
+.brosa-block{
+    margin-bottom: 80px;
+    &.mod-padded{
+        padding: 30px;
+    }
+    p{
+        padding: 20px 0;
+    }
+
+}
+
+.brosa-inverted-block{
+    background-color: #fff;
+    color: $text-color;
+}
+
+
 .brosa-block-title{
     text-transform: uppercase;
     font-size: 30px;
     line-height: 1.2;
     padding: 25px 0;
+    &.mod-lg-line{
+        line-height: 1.5;
+    }
+    &.mod-sm-padding{
+        padding: 15px 0;
+    }
 }
 
 .brosa-block-text{
@@ -74,11 +95,21 @@ body{
     text-transform: uppercase;
     border-radius: 0;
     border: none;
+    line-height: 20px;
+    &.btn-primary.mod-invert{
+        background-color: #fff;
+        color: $brand-primary;
+        &:hover{
+            background-color: #fff;
+            color: darken($brand-primary, 10%);
+        }
+    }
+    &.mod-lg{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }
 
-.brosa-block{
-    padding-bottom: 30px;
-}
 
 .brosa-card{
     padding: 30px 25px;;
@@ -104,9 +135,9 @@ body{
         height: 0;
     }
     &:hover{
-        -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
-        -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
-        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+        -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
+        -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
+        box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3);
 
     }
 }
@@ -139,6 +170,42 @@ body{
         width: calc(100% - 30px);
         display: inline-block;
         float:left;
+    }
+}
+
+.mod-bg-primary{
+    background-color: $brand-primary;
+    color: #fff;
+
+}
+
+.brosa-input-group{
+    @include clearfix();
+    width: 100%;
+    margin-bottom: 30px;
+    .brosa-input{
+        float: left;
+        width: calc(100% - 100px);
+        border-radius: 0;
+        outline: none;
+        box-shadow: none;
+        border-right: 0;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        height: 48px;
+        &::placeholder{
+            text-transform: uppercase;
+            color: lighten($text-color, 30%);
+        }
+        &:focus{
+            border-color: $brand-primary;
+        }
+    }
+
+    .brosa-input-addon{
+        float: left;
+        width: 100px;
+        border-radius: 0;
     }
 }
 

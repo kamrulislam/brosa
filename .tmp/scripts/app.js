@@ -1,3 +1,68 @@
+(function() {
+    'use strict';
+    var documentIsReady = false;
+    var isScrolling = false;
+
+    function hasClass(element, cls) {
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+}
+
+    function getScrollY() {
+        var scrOfY = 0;
+        if (typeof(window.pageYOffset) == 'number') {
+            //Netscape compliant
+            scrOfY = window.pageYOffset;
+
+        } else if (document.body && document.body.scrollTop) {
+            //DOM compliant
+            scrOfY = document.body.scrollTop;
+        }
+        return scrOfY;
+    }
+
+    function handleScroll(e) {
+        var scrollPosition = 0, nav;
+        if (isScrolling) {
+            // setTimeout(handleScroll, 10);
+            return;
+        }
+        isScrolling = true;
+        nav = document.getElementById('brosa-navbar');
+
+
+        scrollPosition = getScrollY();
+        if (scrollPosition > 60) {
+            // need to have inverted className
+            if (!hasClass(nav, 'navbar-inverse')) {
+                nav.className = nav.className.replace('navbar-default', '');
+                nav.classList = nav.className.trim();
+                nav.className += ' navbar-inverse';
+            }
+        } else {
+            if (!hasClass(nav, 'navbar-default')) {
+                nav.className = nav.className.replace('navbar-inverse', '');
+                nav.classList = nav.className.trim();
+                nav.className += ' navbar-default';
+            }
+        }
+
+        isScrolling = false;
+
+    }
+
+    function ready() {
+        if (!documentIsReady) {
+            console.log('ready');
+            document.addEventListener('scroll', handleScroll, false);
+            documentIsReady = true;
+        }
+
+    }
+
+    document.addEventListener('DOMContentLoaded', ready, false);
+    window.addEventListener('load', ready, false);
+})();
+
 /* Modernizr 2.8.3 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-fontface-backgroundsize-borderimage-borderradius-boxshadow-flexbox-hsla-multiplebgs-opacity-rgba-textshadow-cssanimations-csscolumns-generatedcontent-cssgradients-cssreflections-csstransforms-csstransforms3d-csstransitions-applicationcache-canvas-canvastext-draganddrop-hashchange-history-audio-video-indexeddb-input-inputtypes-localstorage-postmessage-sessionstorage-websockets-websqldatabase-webworkers-geolocation-inlinesvg-smil-svg-svgclippaths-touch-webgl-shiv-mq-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-load
  */

@@ -38,11 +38,43 @@ body {
     font-size: 30px;
     line-height: 1.2;
     padding: 25px 0;
+
+    &.mod-highlight{
+        position: relative;
+        &.mod-sm-padding{
+            height:66px;
+        }
+        &:before{
+            position: absolute;
+            content: ' ';
+            width: 80px;
+            height: 20px;
+            bottom: 10px;
+            left:0;
+            background-color: $brand-primary;
+        }
+        span{
+            position: absolute;
+        }
+    }
     &.mod-lg-line {
         line-height: 1.5;
     }
     &.mod-sm-padding {
         padding: 15px 0;
+    }
+    span.mod-highlight{
+        position: relative;
+        &:after{
+            position: absolute;
+            content: ' ';
+            width: 80px;
+            height: 20px;
+            bottom: -5px;
+            left:0;
+            background-color: $brand-primary;
+            z-index: -1;
+        }
     }
 }
 

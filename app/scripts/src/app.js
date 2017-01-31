@@ -2,6 +2,7 @@
     'use strict';
     var documentIsReady = false;
     var isScrolling = false;
+    var timeout = false;
 
     function hasClass(element, cls) {
     return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
@@ -23,7 +24,10 @@
     function handleScroll(e) {
         var scrollPosition = 0, nav;
         if (isScrolling) {
-            // setTimeout(handleScroll, 10);
+            if (timeout) {
+                clearTimeout(timeout);
+            }
+            timeout = setTimeout(handleScroll, 50);
             return;
         }
         isScrolling = true;

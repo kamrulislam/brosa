@@ -148,28 +148,10 @@ gulp.task('html', function() {
 //migrating over all HTML files for deployment
 gulp.task('html-deploy', function() {
     //grab everything, which should include htaccess, robots, etc
-    gulp.src(['app/.htaccess', 'app/*.xml', 'app/*.txt'])
+    gulp.src(['app/.htaccess', 'app/*.xml', 'app/*.txt', 'app/*.png', 'app/*.ico', 'app/index.html'])
         //prevent pipe breaking caused by errors from gulp plugins
         .pipe(plumber())
         .pipe(gulp.dest('dist'));
-
-    //grab everything, which should include htaccess, robots, etc
-    gulp.src('.tmp/index.html')
-        //prevent pipe breaking caused by errors from gulp plugins
-        .pipe(plumber())
-        .pipe(gulp.dest('dist'));
-
-    // //grab everything, which should include htaccess, robots, etc
-    // gulp.src('.tmp/scripts/app.js')
-    //     //prevent pipe breaking caused by errors from gulp plugins
-    //     .pipe(plumber())
-    //     .pipe(gulp.dest('dist/scripts'));
-
-    //grab all of the styles
-    // gulp.src(['.tmp/styles/*.css'])
-    //     //prevent pipe breaking caused by errors from gulp plugins
-    //     .pipe(plumber())
-    //     .pipe(gulp.dest('dist/styles'));
 });
 
 //cleans our dist directory in case things got deleted

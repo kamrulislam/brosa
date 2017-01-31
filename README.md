@@ -1,9 +1,9 @@
-Brosa Demon
+Brosa Demo
 ==========================
 
-* First download or clone this repo :)
+* First download or clone this repo
 * You need to have node and bower installed to run this project
-* Then run `npm install` and `bower install` to install dev dependencies. Use sudo if needed.
+* Then run `npm install` and `bower install` to install dev dependencies. Use `sudo` if needed.
 
 You'll need to have Gulp installed. If you already have Gulp installed, you can skip the following line. It is as simple as running:
 * `npm install -g gulp`
